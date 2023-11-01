@@ -10,6 +10,6 @@ import java.util.Optional;
 public interface DemandeRepository extends JpaRepository<Demande, Long> {
 
 
-    Optional<Demande> findDemandeByNom(String nom);
+    Optional<Demande> findDemandeByNomDemande(String nomDemande);
 
 }

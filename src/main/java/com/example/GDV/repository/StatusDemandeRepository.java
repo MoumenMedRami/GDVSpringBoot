@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface StatusDemandeRepository extends JpaRepository<StatusDemande, Long> {
 
 
-    Optional<StatusDemande> findStatusDemandeByStatusName(String nom);
+    Optional<StatusDemande> findStatusDemandeByStatusName(String statusName);
 
 }

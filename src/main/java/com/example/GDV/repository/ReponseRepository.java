@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface ReponseRepository extends JpaRepository<Reponse, Long> {
 
 
-    Optional<Reponse> findReponseByNom(String nom);
+    Optional<Reponse> findReponseByCodeReponse(String codeReponse);
 
 }
