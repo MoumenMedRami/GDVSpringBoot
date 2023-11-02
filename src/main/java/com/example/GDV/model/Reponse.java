@@ -4,8 +4,6 @@ package com.example.GDV.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,10 +22,12 @@ public class Reponse extends  AbstractEntity {
     private Demande demande ;
 
 
-    @OneToMany(mappedBy = "reponse",fetch= FetchType.LAZY)
-    private List<StatusDemande> statusDemandes;
+    @ManyToOne
+    StatusReponse statusReponse;
 
-    @OneToMany(mappedBy = "reponse",fetch= FetchType.LAZY)
-    private List<Chauffeur> chauffeurs ;
+
+    @ManyToOne
+    private Chauffeur chauffeur;
+
 
 }

@@ -25,11 +25,7 @@ public class Utilisateur extends AbstractEntity {
     @Column(name = "prenom")
     private String prenom;
 
-    @Column(name = "nomArabe")
-    private String nomArabe;
 
-    @Column(name = "prenomArabe")
-    private String prenomArabe;
 
 
     @Column(name = "email")
@@ -53,10 +49,6 @@ public class Utilisateur extends AbstractEntity {
 
     @Column(name="photo")
     private String photo;
-
-
-    @Column(name="posteArabe")
-    private String posteArabe;
 
 
     @OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)

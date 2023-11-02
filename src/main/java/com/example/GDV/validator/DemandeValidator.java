@@ -19,7 +19,7 @@ public class DemandeValidator {
             return errors;
         }
 
-        if (!StringUtils.hasLength(demandeDto.getCodeDemmande()) ) {
+        if (!StringUtils.hasLength(demandeDto.getCodeDemande()) ) {
             errors.add("Veuillez renseigner le getCodeDemmande() d'demandeDto ");
         }
 

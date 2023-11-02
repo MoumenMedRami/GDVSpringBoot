@@ -18,14 +18,14 @@ public class UtilisateurValidator {
             return errors;
         }
 
-        if (!StringUtils.hasLength(utilisateurDto.getNom()) || !StringUtils.hasLength(utilisateurDto.getNomArabe()) ) {
+        if (!StringUtils.hasLength(utilisateurDto.getNom())  ) {
             errors.add("Veuillez renseigner le Nom d'utilisateurDto ");
         }
 
-        if (!StringUtils.hasLength(utilisateurDto.getPrenom()) || !StringUtils.hasLength(utilisateurDto.getPrenomArabe())) {
+        if (!StringUtils.hasLength(utilisateurDto.getPrenom()) ) {
             errors.add("Veuillez renseigner le prenom d'utilisateurDto ");
         }
-        if (!StringUtils.hasLength(utilisateurDto.getPoste()) || !StringUtils.hasLength(utilisateurDto.getPosteArabe())) {
+        if (!StringUtils.hasLength(utilisateurDto.getPoste()) ) {
             errors.add("Veuillez renseigner le poste d'utilisateurDto ");
         }
         if (!StringUtils.hasLength(utilisateurDto.getIsMale().toString()) ) {

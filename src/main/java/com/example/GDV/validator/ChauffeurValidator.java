@@ -19,11 +19,11 @@ public class ChauffeurValidator {
             return errors;
         }
 
-        if (!StringUtils.hasLength(chauffeurDto.getNom()) || !StringUtils.hasLength(chauffeurDto.getNomArabe())) {
+        if (!StringUtils.hasLength(chauffeurDto.getNom()) ) {
             errors.add("Veuillez renseigner le Nom d'chauffeurDto ");
         }
 
-        if (!StringUtils.hasLength(chauffeurDto.getPrenom()) || !StringUtils.hasLength(chauffeurDto.getPrenomArabe())) {
+        if (!StringUtils.hasLength(chauffeurDto.getPrenom()) ) {
             errors.add("Veuillez renseigner le prenom d'chauffeurDto ");
         }
         if (!StringUtils.hasLength(chauffeurDto.getTelephone())) {

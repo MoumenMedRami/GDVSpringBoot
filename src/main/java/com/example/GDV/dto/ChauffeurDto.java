@@ -10,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
+import java.util.List;
 
 @Builder
 //builder est utilisée pour générer automatiquement un constructeur de type "builder" pour une classe.
@@ -28,13 +29,12 @@ public class ChauffeurDto {
 
     private String prenom;
 
-    private String nomArabe;
 
-    private String prenomArabe;
 
     private String telephone;
 
-    private ReponseDto reponseDto;
+
+    private List<ReponseDto> reponsesDtos ;
 
     public static ChauffeurDto fromEntity(Chauffeur chauffeur){
 
@@ -47,9 +47,7 @@ public class ChauffeurDto {
                 .id(chauffeur.getId())
                 .nom(chauffeur.getNom())
                 .prenom(chauffeur.getPrenom())
-                .nomArabe(chauffeur.getNomArabe())
-                .prenomArabe(chauffeur.getPrenomArabe())
-                .reponseDto(ReponseDto.fromEntity(chauffeur.getReponse()))
+
                 .telephone(chauffeur.getTelephone())
                 .autre(chauffeur.getAutre())
                 .remarque(chauffeur.getRemarque())
@@ -70,12 +68,10 @@ public class ChauffeurDto {
                          chauffeur.setId(chauffeurDto.getId());
                          chauffeur.setNom(chauffeurDto.getNom());
                          chauffeur.setPrenom(chauffeurDto.getPrenom());
-                         chauffeur.setPrenomArabe(chauffeurDto.getPrenomArabe());
-                         chauffeur.setNomArabe(chauffeurDto.getPrenomArabe());
                          chauffeur.setTelephone(chauffeurDto.getTelephone());
                          chauffeur.setAutre(chauffeurDto.getAutre());
                          chauffeur.setRemarque(chauffeurDto.getRemarque());
-                         chauffeur.setReponse(ReponseDto.toEntity(chauffeurDto.getReponseDto()));
+
 
         return  chauffeur;
     }

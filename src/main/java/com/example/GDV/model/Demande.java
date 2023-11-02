@@ -1,10 +1,7 @@
 package com.example.GDV.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
@@ -16,13 +13,15 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "Demande")
+@Getter
+@Setter
 public class Demande extends AbstractEntity{
 
     @Column(name = "nomDemande")
     private String nomDemande;
 
     @Column(name = "codeDemande")
-    private String codeDemmande;
+    private String codeDemande;
 
 
     @Column(name="dateCreationDemande")

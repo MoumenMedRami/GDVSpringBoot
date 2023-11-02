@@ -30,9 +30,7 @@ public class UtilisateurDto {
 
     private String prenom;
 
-    private String nomArabe;
 
-    private String prenomArabe;
 
     private String email;
 
@@ -47,9 +45,6 @@ public class UtilisateurDto {
     private String poste;
 
     private String photo;
-
-
-    private String posteArabe;
 
 
     private List<RolesDto> rolesDtos;
@@ -67,8 +62,7 @@ public class UtilisateurDto {
                 .id(utilisateur.getId())
                 .nom(utilisateur.getNom())
                 .prenom(utilisateur.getPrenom())
-                .nomArabe(utilisateur.getNomArabe())
-                .prenomArabe(utilisateur.getPrenomArabe())
+
                 .email(utilisateur.getEmail())
                 .moteDePasse(utilisateur.getMoteDePasse())
                 .dateNaissance(utilisateur.getDateNaissance())
@@ -76,7 +70,7 @@ public class UtilisateurDto {
                 .isActive(utilisateur.getIsActive())
                 .isMale(utilisateur.getIsMale())
                 .poste(utilisateur.getPoste())
-                .posteArabe(utilisateur.getPosteArabe())
+
 
                 .rolesDtos(
                         utilisateur.getRoles() != null ?
@@ -97,15 +91,14 @@ public class UtilisateurDto {
         utilisateur.setId(utilisateurDto.getId());
         utilisateur.setNom(utilisateurDto.getNom());
         utilisateur.setPrenom(utilisateurDto.getPrenom());
-        utilisateur.setPrenomArabe(utilisateurDto.getPrenomArabe());
-        utilisateur.setNomArabe(utilisateurDto.getNomArabe());
+
         utilisateur.setIsActive(utilisateurDto.getIsActive());
         utilisateur.setIsMale(utilisateurDto.getIsMale());
         utilisateur.setEmail(utilisateurDto.getEmail());
         utilisateur.setMoteDePasse(utilisateurDto.getMoteDePasse());
         utilisateur.setDateNaissance(utilisateurDto.getDateNaissance());
         utilisateur.setPhoto(utilisateurDto.getPhoto());
-        utilisateur.setPosteArabe(utilisateurDto.getPosteArabe());
+
 
 
         return utilisateur;

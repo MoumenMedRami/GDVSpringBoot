@@ -1,12 +1,9 @@
 package com.example.GDV.dto;
 
 
-import com.example.GDV.model.Chauffeur;
 import com.example.GDV.model.Reponse;
 import lombok.Builder;
 import lombok.Data;
-
-import java.util.List;
 
 @Builder
 //builder est utilisée pour générer automatiquement un constructeur de type "builder" pour une classe.
@@ -24,9 +21,9 @@ public class ReponseDto {
 
     private DemandeDto demandeDto ;
 
-    private List<StatusDto> statusesDtos ;
+    private StatusReponseDto statusReponseDto;
 
-    private List<ChauffeurDto> chauffeursDtos ;
+    private ChauffeurDto chauffeursDto;
 
 
     public static ReponseDto fromEntity(Reponse reponse){
@@ -41,7 +38,9 @@ public class ReponseDto {
                 .codeReponse(reponse.getCodeReponse())
                 .demandeDto(DemandeDto.fromEntity(reponse.getDemande()))
                 .autre(reponse.getAutre())
+                .chauffeursDto(ChauffeurDto.fromEntity(reponse.getChauffeur()))
                 .remarque(reponse.getRemarque())
+                .statusReponseDto(StatusReponseDto.fromEntity(reponse.getStatusReponse()))
                 .build();
     }
 
@@ -61,6 +60,8 @@ public class ReponseDto {
         reponse.setAutre(reponseDto.getAutre());
         reponse.setRemarque(reponseDto.getRemarque());
         reponse.setDemande(DemandeDto.toEntity(reponseDto.getDemandeDto()));
+        reponse.setChauffeur(ChauffeurDto.toEntity(reponseDto.getChauffeursDto()));
+        reponse.setStatusReponse(StatusReponseDto.toEntity(reponseDto.getStatusReponseDto()));
 
         return  reponse;
     }

@@ -4,6 +4,8 @@ package com.example.GDV.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 
 @Data
 @NoArgsConstructor
@@ -13,17 +15,17 @@ import lombok.*;
 @Table(name="StatusDemande")
 @Getter
 @Setter
-public class StatusDemande extends AbstractEntity{
+public class StatusReponse extends AbstractEntity{
 
     @Column(name = "statusName")
     private String statusName;
 
 
     @Column(name="codeStatus")
-    private Boolean codeStatus;
+    private String codeStatus;
 
 
-    @ManyToOne
-    Reponse reponse ;
+    @OneToMany(mappedBy = "statusReponse",fetch= FetchType.LAZY)
+    private List<Reponse> reponses;
 
 }

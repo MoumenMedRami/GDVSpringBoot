@@ -29,7 +29,7 @@ public class DemandeDto {
 
     private String nomDemande;
 
-    private String codeDemmande;
+    private String codeDemande;
 
     private Date dateCreationDemande ;
 
@@ -65,7 +65,7 @@ public class DemandeDto {
         return  DemandeDto.builder()
                 .id(demande.getId())
                 .nomDemande(demande.getNomDemande())
-                .codeDemmande(demande.getCodeDemmande())
+                .codeDemande(demande.getCodeDemande())
                 .dateCreationDemande(demande.getDateCreationDemande())
                 .numeroMission(demande.getNumeroMission())
                 .motif(demande.getMotif())
@@ -88,17 +88,15 @@ public class DemandeDto {
 
 
 
-             demande.setId(demandeDto.getId());
+        demande.setId(demandeDto.getId());
         demande.setNomDemande(demandeDto.getNomDemande());
-        demande .setCodeDemmande(demandeDto.getCodeDemmande());
+        demande .setCodeDemande(demandeDto.getCodeDemande());
         demande .setDateCreationDemande(demandeDto.getDateCreationDemande());
         demande .setNumeroMission(demandeDto.getNumeroMission());
         demande .setMotif(demandeDto.getMotif());
         demande . setDateMission(demandeDto.getDateMission());
         demande .setDateRetourMission(demandeDto.getDateRetourMission());
         demande .setLieuMission(demandeDto.getLieuMission());
-
-
         demande .setUtilisateur(UtilisateurDto.toEntity(demandeDto.getUtilisateurDto()));
         demande .setAutre(demandeDto.getAutre());
         demande .setRemarque(demandeDto.getRemarque());
