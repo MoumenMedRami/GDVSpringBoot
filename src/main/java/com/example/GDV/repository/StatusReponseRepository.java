@@ -13,7 +13,5 @@ public interface StatusReponseRepository extends JpaRepository<StatusReponse, Lo
 
     Optional<StatusReponse>findBycodeStatus(String codeStatus);
 
-    List<StatusReponse> findAllByReponseId(Long id);
 
-    List<StatusReponse> findAllByReponseCodeReponse(String codeReponse);
 }

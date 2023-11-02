@@ -32,16 +32,16 @@ public class StatusReponseController implements StatusReponseApi {
     public StatusReponseDto findByCodeStatus(String codeStatus) {
         return istatusReponseService.findByCodeStatus(codeStatus);
     }
-
+/*
     @Override
     public List<StatusReponseDto> findAllStatusReponseByReponseId(Long id) {
         return istatusReponseService.findAllStatusReponseByReponseId(id);
-    }
-
+    }*/
+/*
     @Override
     public List<StatusReponseDto> findAllStatusReponseByReponseCodeReponse(String codeReponse) {
         return istatusReponseService.findAllStatusReponseByReponseCodeReponse(codeReponse);
-    }
+    }*/
 
     @Override
     public List<StatusReponseDto> findAll() {

@@ -12,9 +12,9 @@ public interface IstatusReponseService {
 
     StatusReponseDto findByCodeStatus(String codeStatus);
 
-    List<StatusReponseDto> findAllStatusReponseByReponseId(Long id);
+   // List<StatusReponseDto> findAllStatusReponseByReponseId(Long id);
 
-    List<StatusReponseDto> findAllStatusReponseByReponseCodeReponse(String codeReponse);
+  //  List<StatusReponseDto> findAllStatusReponseByReponseCodeReponse(String codeReponse);
 
 
     List<StatusReponseDto> findAll();

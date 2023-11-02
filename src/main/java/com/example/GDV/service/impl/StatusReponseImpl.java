@@ -80,7 +80,7 @@ public class StatusReponseImpl implements IstatusReponseService {
                         ErrorCodes.STATUS_REPONSE_NOT_FOUND)
         );
     }
-
+/*
     @Override
     public List<StatusReponseDto> findAllStatusReponseByReponseId(Long id) {
         if (id == null) {
@@ -102,7 +102,7 @@ public class StatusReponseImpl implements IstatusReponseService {
         return statusReponseRepository.findAllByReponseCodeReponse(codeReponse).stream()
                 .map(StatusReponseDto::fromEntity).collect(Collectors.toList());
     }
-
+*/
     @Override
     public List<StatusReponseDto> findAll() {
         return statusReponseRepository.findAll().stream()

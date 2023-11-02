@@ -15,14 +15,14 @@ public interface StatusReponseApi {
 
     @GetMapping( "gdv/statusReponse/{codeStatus}")
     StatusReponseDto findByCodeStatus(@PathVariable("codeStatus") String codeStatus);
-
+/*
     @GetMapping( "gdv/statusReponse/reponse/{idReponse}")
     List<StatusReponseDto> findAllStatusReponseByReponseId(@PathVariable("idReponse") Long id);
 
     @GetMapping( "gdv/statusReponse/reponse/{codeReponse}")
     List<StatusReponseDto> findAllStatusReponseByReponseCodeReponse(@PathVariable("codeReponse") String codeReponse);
 
-
+*/
     @GetMapping( "gdv/statusReponse/all")
     List<StatusReponseDto> findAll();
 
