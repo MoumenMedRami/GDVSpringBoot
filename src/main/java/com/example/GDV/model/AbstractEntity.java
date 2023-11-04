@@ -24,7 +24,7 @@ public class AbstractEntity implements Serializable {
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id ;
-
+/*
     @CreatedDate
     @Column(name="creation_date",  nullable = false , updatable = false)
     private Instant creationDate;
@@ -34,7 +34,7 @@ public class AbstractEntity implements Serializable {
     @Column(name="last_modified_date")
     private Instant lastModifiedDate;
 
-
+*/
     @Column(name="autre")
     private String autre;
 

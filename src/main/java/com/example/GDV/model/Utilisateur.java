@@ -51,8 +51,7 @@ public class Utilisateur extends AbstractEntity {
     private String photo;
 
 
-    @OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
-    @JsonIgnore
+    @ManyToMany
     private List<Roles> roles;
 
     @OneToMany(mappedBy = "utilisateur",fetch= FetchType.LAZY)

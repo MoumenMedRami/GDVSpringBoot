@@ -2,6 +2,8 @@ package com.example.GDV.controller;
 
 import com.example.GDV.controller.api.DemandeApi;
 import com.example.GDV.dto.DemandeDto;
+import com.example.GDV.dto.FilterDemande;
+import com.example.GDV.dto.RestPage;
 import com.example.GDV.service.IdemandeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
@@ -44,8 +46,8 @@ public class DemandeController implements DemandeApi {
     }
 
     @Override
-    public List<DemandeDto> findAll() {
-        return idemandeService.findAll();
+    public RestPage findAll(FilterDemande filter) {
+        return idemandeService.findAll(filter);
     }
 
     @Override

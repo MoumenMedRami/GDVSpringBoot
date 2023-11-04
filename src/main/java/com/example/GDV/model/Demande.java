@@ -3,6 +3,8 @@ package com.example.GDV.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class Demande extends AbstractEntity{
 
 
     @Column(name="dateCreationDemande")
-    private Date dateCreationDemande ;
+    private LocalDateTime dateCreationDemande =LocalDateTime.now() ;
 
     @Column(name = "numeroMission")
     private String numeroMission;
@@ -42,8 +44,7 @@ public class Demande extends AbstractEntity{
     @Column(name ="lieuMission")
     private String lieuMission;
 
-    @Column(name="isMale")
-    private Boolean isMale;
+
 
     @ManyToOne
     private  Utilisateur utilisateur;

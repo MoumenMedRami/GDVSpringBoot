@@ -1,8 +1,6 @@
 package com.example.GDV;
 
-import com.example.GDV.auth.auth.AuthenticationService;
-import com.example.GDV.auth.auth.RegisterRequest;
-import com.example.GDV.auth.user.Role;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,6 +14,7 @@ public class GdvApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GdvApplication.class, args);
 	}
+/*
 	@Bean
 	public CommandLineRunner commandLineRunner(
 			AuthenticationService service
@@ -66,5 +65,7 @@ public class GdvApplication {
 
 		};
 	}
+
+ */
 
 }

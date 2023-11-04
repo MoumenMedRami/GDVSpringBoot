@@ -1,22 +1,25 @@
 package com.example.GDV.service.impl;
 
 import com.example.GDV.dto.DemandeDto;
+import com.example.GDV.dto.FilterDemande;
+import com.example.GDV.dto.RestPage;
 import com.example.GDV.exception.EntityNotFoundException;
 import com.example.GDV.exception.ErrorCodes;
 import com.example.GDV.exception.InvalidEntityException;
 import com.example.GDV.model.Demande;
-import com.example.GDV.model.Utilisateur;
 import com.example.GDV.repository.DemandeRepository;
 import com.example.GDV.repository.UtilisateurRepository;
 import com.example.GDV.service.IdemandeService;
 import com.example.GDV.validator.DemandeValidator;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -52,8 +55,9 @@ public class DemandeServiceImpl implements IdemandeService {
 //---------------- verivifier si lee utilisateur si il  existe------------------------
 
 
+        log.warn("dto  : {}" , dto);
 
-        if(dto.getUtilisateurDto() != null){
+    /*    if(dto.getUtilisateurDto() != null){
 
 
                     Optional<Utilisateur> utilisateur =  utilisateurRepository.findById(dto.getUtilisateurDto().getId());
@@ -69,15 +73,22 @@ public class DemandeServiceImpl implements IdemandeService {
                 }
 
                 if( !errosUtilisateur.isEmpty()){
-                    log.warn("utilisateur n'existe pas dans la base de donnée");
+                    log.warn("error validation : {} " , errosUtilisateur.get(0));
 
                     throw new InvalidEntityException("utilisateur n'existe pas dans la base de donnée",ErrorCodes.UTILISATEUR_NOT_FOUND, errosUtilisateur);
 
-                }
+                }*/
 
+      //  Demande demande = new Demande();
 
-                Demande saveDemande = demandeRepository.save(DemandeDto.toEntity(dto));
-
+            Demande demande = demandeRepository.findTopByOrderByIdDesc();
+            Long i =   demande.getId();
+            int ii =  (int)i.intValue();
+            ii = ii+ 1;
+            if(dto.getCodeDemande() == null) {
+                dto.setCodeDemande("APN/DV/" + ii + "");
+            }
+              Demande saveDemande = demandeRepository.save(DemandeDto.toEntity(dto));
                 return DemandeDto.fromEntity(saveDemande);
 
 
@@ -138,11 +149,25 @@ public class DemandeServiceImpl implements IdemandeService {
                 .collect(Collectors.toList());
     }
 
+    public RestPage exportPage(Page page) {
+
+        RestPage restPage = new RestPage(page);
+
+        if (!page.isEmpty()) {
+
+            restPage.setData(page.getContent());
+        }
+
+        return restPage;
+    }
+
+
     @Override
-    public List<DemandeDto> findAll() {
-        return demandeRepository.findAll().stream()
-                .map(DemandeDto::fromEntity) // expresion lamda
-                .collect(Collectors.toList());
+    public RestPage findAll(FilterDemande filter) {
+        var pagible = PageRequest.of(filter.getPage(), filter.getLimit());
+        var list = demandeRepository.filter(filter.getCodeDemande() , filter.getDateMission(), filter.getDateRetourMission(),
+                filter.getLieuMission(),pagible);
+        return exportPage(list);
     }
 
     @Override
@@ -154,4 +179,8 @@ public class DemandeServiceImpl implements IdemandeService {
         }
         demandeRepository.deleteById(id);
     }
+
+
+
+
 }

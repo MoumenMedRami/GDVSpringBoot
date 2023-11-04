@@ -1,6 +1,9 @@
 package com.example.GDV.service;
 
 import com.example.GDV.dto.DemandeDto;
+import com.example.GDV.dto.FilterDemande;
+import com.example.GDV.dto.RestPage;
+import com.example.GDV.model.Demande;
 
 import java.util.List;
 
@@ -16,7 +19,10 @@ public interface IdemandeService {
 
     List<DemandeDto> findAllDemandeByUtilisateurNom(String nom);
 
-    List<DemandeDto> findAll();
+
+    RestPage findAll(FilterDemande filter);
 
     void delete(Long id);
+
+
 }

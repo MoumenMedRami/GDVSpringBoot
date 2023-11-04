@@ -18,11 +18,11 @@ public class DemandeValidator {
 
             return errors;
         }
-
+/*
         if (!StringUtils.hasLength(demandeDto.getCodeDemande()) ) {
             errors.add("Veuillez renseigner le getCodeDemmande() d'demandeDto ");
         }
-
+*/
         if (!StringUtils.hasLength(demandeDto.getDateMission()) ) {
             errors.add("Veuillez renseigner le DateMission d'demandeDto ");
         }

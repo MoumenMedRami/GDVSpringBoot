@@ -1,6 +1,9 @@
 package com.example.GDV.controller.api;
 
+import com.example.GDV.dto.ChauffeurDto;
 import com.example.GDV.dto.DemandeDto;
+import com.example.GDV.dto.FilterDemande;
+import com.example.GDV.dto.RestPage;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,9 +24,9 @@ public interface DemandeApi {
     @GetMapping( "gdv/demande/utilisateur/{nomUtilisateur}")
     List<DemandeDto> findAllDemandeByUtilisateurNom(@PathVariable("nomUtilisateur")  String nom);
 
-    @GetMapping( "gdv/demande/all")
-    List<DemandeDto> findAll();
-    @DeleteMapping("gdv/demande/delete/{idDemande}")
+    @PostMapping( "gdv/demande/all")
+    RestPage findAll(@RequestBody FilterDemande filter);
+    @GetMapping("gdv/demande/delete/{idDemande}")
     void delete(@PathVariable("idDemande")  Long id);
 
 

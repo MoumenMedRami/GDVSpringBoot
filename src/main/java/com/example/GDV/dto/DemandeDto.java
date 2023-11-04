@@ -12,6 +12,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class DemandeDto {
 
     private String codeDemande;
 
-    private Date dateCreationDemande ;
+    private LocalDateTime dateCreationDemande ;
 
     private String numeroMission;
 
@@ -85,13 +87,14 @@ public class DemandeDto {
             return  null;
         }
         Demande demande = new Demande();
-
-
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH mm ss");
+        String formattedDateTime = localDateTime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH mm ss"));
 
         demande.setId(demandeDto.getId());
         demande.setNomDemande(demandeDto.getNomDemande());
         demande .setCodeDemande(demandeDto.getCodeDemande());
-        demande .setDateCreationDemande(demandeDto.getDateCreationDemande());
+        demande .setDateCreationDemande(LocalDateTime.parse(formattedDateTime, DateTimeFormatter.ofPattern("dd-MM-yyyy HH mm ss")));
         demande .setNumeroMission(demandeDto.getNumeroMission());
         demande .setMotif(demandeDto.getMotif());
         demande . setDateMission(demandeDto.getDateMission());

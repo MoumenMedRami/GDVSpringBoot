@@ -3,14 +3,14 @@ package com.example.GDV.controller.api;
 import com.example.GDV.dto.ChauffeurDto;
 import com.example.GDV.dto.DemandeDto;
 import com.example.GDV.dto.UtilisateurDto;
-import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 public interface ChauffeurApi {
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     @PostMapping("gdv/chauffeur/create")
     ChauffeurDto save(@RequestBody ChauffeurDto dto);
 
